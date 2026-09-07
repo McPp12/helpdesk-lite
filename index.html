@@ -8,10 +8,10 @@
     <title>HelpDesk Lite</title>
 </head>
 <body>
-    <header class="header">
+    <header class="header"> 
         <nav class="navbar container">
             <a href="#inicio" class="logo">HelpDesk Lite</a>
-                      <a href="#nuevo-ticket" class="button button-primary">+ Nuevo Ticket</a>
+            <a href="#nuevo-ticket" class="button button-primary">+ Nuevo Ticket</a>
         </nav>
     </header>
 
@@ -41,58 +41,87 @@
                 </article>
             </div>
         </section>
+
         <section id="nuevo-ticket" class="form-section container">
-    <div class="section-header">
-        <span class="section-label">Registro</span>
-        <h2>Nuevo Ticket</h2>
-    </div>
-
-    <form id="ticket-form" class="ticket-form" novalidate>
-        <div class="form-group">
-            <label for="ticket-title">Título</label>
-            <input type="text" id="ticket-title" name="title" placeholder="Ej. Internet caído en laboratorio">
-        </div>
-
-        <div class="form-group">
-            <label for="ticket-description">Descripción</label>
-            <textarea id="ticket-description" name="description" rows="4" placeholder="Describe el problema con el mayor detalle posible"></textarea>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <label for="ticket-category">Categoría</label>
-                <select id="ticket-category" name="category">
-                    <option value="" disabled selected>Selecciona una categoría</option>
-                    <option value="Hardware">Hardware</option>
-                    <option value="Software">Software</option>
-                    <option value="Red">Red</option>
-                    <option value="Accesos">Accesos</option>
-                    <option value="Correo">Correo</option>
-                    <option value="Otro">Otro</option>
-                </select>
+            <div class="section-header">
+                <span class="section-label">Registro</span>
+                <h2>Nuevo Ticket</h2>
             </div>
 
-            <div class="form-group">
-                <label for="ticket-priority">Prioridad</label>
-                <select id="ticket-priority" name="priority">
-                    <option value="" disabled selected>Selecciona una prioridad</option>
-                    <option value="Baja">Baja</option>
-                    <option value="Media">Media</option>
-                    <option value="Alta">Alta</option>
-                    <option value="Crítica">Crítica</option>
-                </select>
-            </div>
-        </div>
+            <form id="ticket-form" class="ticket-form" novalidate>
+                <div class="form-group">
+                    <label for="ticket-title">Título</label>
+                    <input type="text" id="ticket-title" name="title" placeholder="Ej. Internet caído en laboratorio">
+                </div>
 
-        <p class="form-error" id="form-error"></p>
+                <div class="form-group">
+                    <label for="ticket-description">Descripción</label>
+                    <textarea id="ticket-description" name="description" rows="4" placeholder="Describe el problema con el mayor detalle posible"></textarea>
+                </div>
 
-        <button type="submit" class="button button-primary">Crear Ticket</button>
-    </form>
-</section>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ticket-category">Categoría</label>
+                        <select id="ticket-category" name="category">
+                            <option value="" disabled selected>Selecciona una categoría</option>
+                            <option value="Hardware">Hardware</option>
+                            <option value="Software">Software</option>
+                            <option value="Red">Red</option>
+                            <option value="Accesos">Accesos</option>
+                            <option value="Correo">Correo</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ticket-priority">Prioridad</label>
+                        <select id="ticket-priority" name="priority">
+                            <option value="" disabled selected>Selecciona una prioridad</option>
+                            <option value="Baja">Baja</option>
+                            <option value="Media">Media</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Crítica">Crítica</option>
+                        </select>
+                    </div>
+                </div>
+
+                <p class="form-error" id="form-error"></p>
+
+                <button type="submit" class="button button-primary">Crear Ticket</button>
+            </form>
+        </section>
+
         <section id="tickets" class="tickets-section container">
             <div class="section-header">
                 <span class="section-label">Bandeja</span>
                 <h2>Tickets registrados</h2>
+            </div>
+
+            <div class="toolbar">
+                <div class="form-group search-group">
+                    <label for="search-input">Buscar</label>
+                    <input type="search" id="search-input" placeholder="Folio, título o descripción">
+                </div>
+
+                <div class="filters">
+                    <button class="filter-button active" data-status="Todos">Todos</button>
+                    <button class="filter-button" data-status="Nuevo">Nuevo</button>
+                    <button class="filter-button" data-status="En proceso">Proceso</button>
+                    <button class="filter-button" data-status="Resuelto">Resuelto</button>
+                    <button class="filter-button" data-status="Cerrado">Cerrado</button>
+                    <button class="filter-button" data-status="Cancelado">Cancelado</button>
+                </div>
+
+                <div class="form-group priority-filter">
+                    <label for="priority-select">Prioridad</label>
+                    <select id="priority-select">
+                        <option value="Todas">Todas</option>
+                        <option value="Baja">Baja</option>
+                        <option value="Media">Media</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Crítica">Crítica</option>
+                    </select>
+                </div>
             </div>
 
             <div id="tickets-container" class="tickets-grid"></div>
