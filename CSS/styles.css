@@ -1,0 +1,465 @@
+:root {
+    --color-primary: #155EEF;
+    --color-primary-dark: #0E42D2;
+    --color-bg: #F4F6FB;
+    --color-surface: #FFFFFF;
+    --color-text: #101828;
+    --color-text-secondary: #667085;
+    --color-border: #E4E7EC;
+    --color-danger: #B42318;
+    --radius: 12px;
+    --radius-pill: 999px; 
+    --shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+    --transition: 0.2s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin-inline: auto;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.logo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* ---------- Secciones y encabezados ---------- */
+
+.dashboard-section,
+.form-section,
+.tickets-section {
+    padding: 3rem 0;
+}
+
+.section-header {
+    margin-bottom: 1.75rem;
+}
+
+.section-label {
+    display: inline-block;
+    color: var(--color-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+.section-header h1,
+.section-header h2 {
+    font-size: 1.75rem;
+}
+
+/* ---------- Dashboard ---------- */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.dashboard-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.dashboard-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.dashboard-label {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ---------- Formulario ---------- */
+
+.ticket-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 640px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input,
+textarea,
+select {
+    font: inherit;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(21, 94, 239, 0.15);
+}
+
+.form-error {
+    color: var(--color-danger);
+    font-size: 0.9rem;
+    min-height: 1.1rem;
+}
+
+.form-error:empty {
+    visibility: hidden;
+}
+
+/* ---------- Botones ---------- */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.15rem;
+    border: none;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform var(--transition), background-color var(--transition), color var(--transition);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.button-primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.button-secondary {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.button-secondary:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.ticket-action-button[data-next-status="Cancelado"] {
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+}
+
+.ticket-action-button[data-next-status="Cancelado"]:hover {
+    background: var(--color-danger);
+    color: white;
+}
+
+/* ---------- Barra de herramientas ---------- */
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.search-group {
+    flex: 1 1 240px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.filter-button {
+    padding: 0.55rem 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.filter-button:hover {
+    border-color: var(--color-primary);
+}
+
+.filter-button.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.priority-filter {
+    flex: 0 1 180px;
+}
+
+/* ---------- Tickets ---------- */
+
+.tickets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.ticket-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.ticket-card[data-priority="Baja"] {
+    border-left-color: #067647;
+}
+
+.ticket-card[data-priority="Media"] {
+    border-left-color: #175CD3;
+}
+
+.ticket-card[data-priority="Alta"] {
+    border-left-color: #B54708;
+}
+
+.ticket-card[data-priority="Crítica"] {
+    border-left-color: var(--color-danger);
+}
+
+.ticket-folio {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.ticket-card h3 {
+    font-size: 1.15rem;
+}
+
+.ticket-description {
+    color: var(--color-text-secondary);
+}
+
+.ticket-information p {
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.ticket-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.ticket-actions .button {
+    padding: 0.55rem 0.9rem;
+    font-size: 0.85rem;
+}
+
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: 2rem 0;
+}
+
+/* ---------- Insignias de prioridad y estado ---------- */
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.badge[data-priority="Baja"] {
+    background: #ECFDF3;
+    color: #067647;
+}
+
+.badge[data-priority="Media"] {
+    background: #EFF8FF;
+    color: #175CD3;
+}
+
+.badge[data-priority="Alta"] {
+    background: #FFFAEB;
+    color: #B54708;
+}
+
+.badge[data-priority="Crítica"] {
+    background: #FEF3F2;
+    color: var(--color-danger);
+}
+
+.badge[data-status="Nuevo"] {
+    background: #EFF4FF;
+    color: #155EEF;
+}
+
+.badge[data-status="En proceso"] {
+    background: #FFFAEB;
+    color: #B54708;
+}
+
+.badge[data-status="Resuelto"] {
+    background: #ECFDF3;
+    color: #067647;
+}
+
+.badge[data-status="Cerrado"] {
+    background: #F2F4F7;
+    color: #475467;
+}
+
+.badge[data-status="Cancelado"] {
+    background: #FEF3F2;
+    color: var(--color-danger);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+    padding: 2.5rem 0;
+    background: #0f172a;
+    color: #ffffff;
+}
+
+.footer p {
+    margin-top: 0.4rem;
+    color: #cbd5e1;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 0.75rem;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .priority-filter {
+        flex: 1 1 auto;
+    }
+
+    .tickets-grid {
+        grid-template-columns: 1fr;
+    }
+}
